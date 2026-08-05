@@ -170,6 +170,24 @@ body.cine .cine-photo.fixedmode{position:fixed;left:50%;top:50%;transform:transl
 .cta{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--red);color:#fff;border-radius:10px;padding:17px 20px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:13px;transition:filter .2s,transform .2s,box-shadow .2s}
 .cta:hover{filter:brightness(1.08);transform:translateY(-2px);box-shadow:0 14px 40px rgba(236,51,39,.4)}
 
+/* ===== TMI (hero, lower right — mirrors the bio on the left) ===== */
+.tmi{z-index:4;margin-top:22px;width:100%;max-width:440px;border:1px solid var(--line);
+  border-left:3px solid var(--red);border-radius:12px;
+  background:linear-gradient(150deg,rgba(236,51,39,.09),rgba(13,13,14,.62) 70%);
+  backdrop-filter:blur(6px);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.tmi-h{font-size:11px;letter-spacing:.3em;font-weight:800;color:var(--red);text-transform:uppercase;
+  padding:16px 20px;border-bottom:1px solid var(--line)}
+.tmi-h span{color:var(--dim);letter-spacing:.1em;font-weight:600;font-family:var(--kr);font-size:11px}
+.tmi-r{display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:baseline;padding:15px 20px;
+  border-top:1px solid rgba(255,255,255,.05);transition:background .2s,padding-left .2s}
+.tmi-r:first-of-type{border-top:none}
+a.tmi-r:hover{background:rgba(236,51,39,.10);padding-left:28px}
+.tmi-r .k{font-size:10px;letter-spacing:.18em;color:var(--dim);text-transform:uppercase}
+.tmi-r .v{font-size:14.5px;font-weight:700;letter-spacing:.01em;line-height:1.5}
+.tmi-r .v i{font-style:normal;font-weight:600;color:var(--red);font-size:12px;white-space:nowrap}
+body.cine .tmi{position:absolute;right:clamp(24px,5vw,64px);bottom:12vh;margin:0;
+  width:clamp(320px,32vw,440px);opacity:0}
+
 /* ===== EXPERIENCE ===== */
 .exp{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,1.8vw,22px)}
 .expcard{background:var(--panel);border:1px solid var(--line);border-left:2px solid var(--red);border-radius:10px;padding:22px;transition:border-color .2s}
@@ -418,8 +436,17 @@ body.locked{overflow:hidden}
         <div class="stat"><span class="k">Focus</span><span class="v">Backend · Full-Stack</span></div>
         <div class="stat"><span class="k">Available</span><span class="v">Worldwide</span></div>
       </div>
+
     </div>
 
+
+      <div class="tmi">
+        <div class="tmi-h">TMI <span>· 이력서엔 없는 것들</span></div>
+        <div class="tmi-r"><span class="k">MBTI</span><span class="v">INTJ / ENFJ</span></div>
+        <div class="tmi-r"><span class="k">병역</span><span class="v kr">육군 특수전사령부 · 병장 만기전역</span></div>
+        <div class="tmi-r"><span class="k">병역</span><span class="v kr">공수교육 등 각종 교육 수료</span></div>
+        <a class="tmi-r" href="#awards"><span class="k">운동</span><span class="v kr">보디빌더 <i>· 수상 내역 →</i></span></a>
+      </div>
     <p class="cine-bio kr">백엔드·웹·모바일·배포까지 제품 전체를 혼자 설계·구현하는 풀스택 개발자입니다. 인증·결제·데이터처럼 무겁고 까다로운 부분을 끝까지 파고들어 실제로 안정적으로 동작하게 만듭니다.</p>
 
     <div class="cue">Scroll<span class="arw"></span></div>
@@ -562,9 +589,9 @@ body.locked{overflow:hidden}
 
     <div class="statstrip" data-rv>
       <div class="stt"><b>32</b><span class="kr">그룹 사이트 영문 페이지 신규 구축<br>(0 → 1)</span></div>
-      <div class="stt"><b>32</b><span class="kr">그룹 사이트 국문 페이지 신규 구축<br>(0 → 1)</span></div>
-      <div class="stt"><b>26</b><span class="kr">URL 재설계 후<br>전수 검증</span></div>
-      <div class="stt"><b>22</b><span class="kr">JSON-LD 스키마<br>적용 페이지</span></div>
+      <div class="stt"><b>26</b><span class="kr">그룹 사이트 국문 페이지 신규 구축<br>(0 → 1)</span></div>
+      <div class="stt"><b>22</b><span class="kr">제품 사이트 리뉴얼 구축</span></div>
+      <div class="stt"><b>8</b><span class="kr">JSON-LD 스키마<br>적용 페이지</span></div>
     </div>
 
     <div class="cs-tech" data-rv>
@@ -756,6 +783,7 @@ body.locked{overflow:hidden}
         </a>
       </div>
       <a class="cta" href="mailto:happyjj407@naver.com">Let's build something solid <span>→</span></a>
+
     </div>
   </div>
 </section>
@@ -1029,11 +1057,11 @@ body.locked{overflow:hidden}
 
   var stage=q('.stage'), pin=q('.pin'), top=q('.top'), vig=q('.vig'),
       giant=q('.giant2'), left=q('.cine-left'), right=q('.cine-right'),
-      bio=q('.cine-bio'), photo=q('.cine-photo'), fig=q('.cine-photo .fig'),
+      bio=q('.cine-bio'), tmi=q('.tmi'), photo=q('.cine-photo'), fig=q('.cine-photo .fig'),
       eyeL=q('.eyeL'), eyeR=q('.eyeR'), cue=q('.cue'), bar=q('.pbar i');
 
   document.body.classList.add('cine');
-  [giant,left,right,bio].forEach(function(e){e.style.willChange='transform,opacity'});
+  [giant,left,right,bio,tmi].forEach(function(e){ if(e) e.style.willChange='transform,opacity' });
 
   var clamp=function(v,a,b){return Math.max(a,Math.min(b,v))};
   var seg=function(p,a,b){return clamp((p-a)/(b-a),0,1)};
@@ -1062,6 +1090,8 @@ body.locked{overflow:hidden}
     right.style.transform='translate('+((1-tp)*130)+'%,-50%)';
     bio.style.opacity=biop;
     bio.style.transform='translateY('+((1-biop)*28)+'px)';
+    if(tmi){ var tm=eo(seg(p,0.32,0.60));
+      tmi.style.opacity=tm; tmi.style.transform='translateX('+((1-tm)*70)+'px)'; }
 
     // photo darkens toward silhouette; light leaks from the eyes
     fig.style.filter='brightness('+(1-bp*(1-DARK))+') contrast('+(1.04+bp*0.25)+') drop-shadow(0 26px 50px rgba(0,0,0,.6))';
